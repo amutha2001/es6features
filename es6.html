@@ -1,0 +1,125 @@
+<!docutype html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6features</title>
+	
+</head>
+<body>
+    <script>
+	    <!-- call -->
+		let person={
+		     details:function(state){
+			    return console.log(this.name+""+this.place+","+state)
+				 }
+				 }
+		let	person1={
+                name:"Amutha",
+                place:"sivagamipuram",
+                age:22
+            }	
+			person.details.call(person1,"Tamilnadu");
+		
+        <!-- apply-->
+		    let person3={
+		     details:function(state,work){
+			    return console.log(this.name+""+this.place+","+state+","+work)
+				 }
+				 }
+		    let	person4={
+                name:"kaviya",
+                place:"surandai",
+                age:22
+            }	
+			person3.details.apply(person4,["Tamilnadu","Chennai"]);
+			
+			
+			<!-- bind -->
+			let person5={
+		     details:function(state,work,color){
+			    return console.log(this.name+""+this.place+","+state+","+work+","+color)
+				 }
+				 }
+		    let	person6={
+                name:"kaviya",
+                place:"surandai",
+                age:22
+            }	
+			var per=person5.details.bind(person6,"Tamilnadu","Chennai","red"); 
+			per();
+			
+			<!-- let -->
+			console.log(c);<!--it is hoisting and function scope-->
+			var c=10;
+			<!-- console.log(d); -->
+			<!-- let d=30; <!--it is not hoisting and block scope--> -->
+			
+			<!-- const -->
+			<!-- const f=10; -->
+			<!-- f=30;<!--no change--> -->
+			<!-- console.log(f); -->
+			
+	    <!-- Template literals -->
+			let a=10;
+			let b=21;
+			const str1=`This string is ${a+b==30}? \n\n    The number is big`
+			console.log(str1);
+			
+		<!-- Arrow function -->
+	    let name = () =>  3;
+			var v= name();
+			console.log(v);
+			
+		var flower1={
+		    name:"rose",
+			color:"red"
+			}
+		var flower2={
+		      sunflower(){ <!---There won't be own this-->
+			    console.log(this.name);
+				 var flowers = () =>{
+				    console.log(this);
+					}
+					flowers();
+					}
+					}
+					flower2.sunflower.call(flower1);
+					
+		<!-- destruturing -->
+		   var car={
+			    Name:"audi",
+				color:"blue"
+				};
+			var arr=[1,2,5,6,7];
+			
+			const {Name,color}=car;
+			const [u,s,x,y,z]=arr;
+			console.log(Name,color,u,s,x,y,z);
+			
+		<!-- defalut param -->
+		function calutax(cost,tax=18)
+		{
+		  return taxaccount=cost*(tax/100);
+		  }
+		  console.log(calutax(30));
+		
+		<!-- spread and rest -->
+		function operator(...f){
+			console.log(f);
+			}
+		operator(5,2);
+		operator(5,2,6);
+		operator(5,2,3,1);
+		
+		<!-- spread -->
+		let details={
+		     name:"priya",
+			 place:"tenkasi"
+			 }
+			 detail={...details};
+			detail.name="kaviya";
+            console.log(details,detail);			
+	</script>
+</body>
+</html>
